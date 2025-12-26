@@ -1,6 +1,6 @@
 {
   "name": "fin-bridge-security",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Security module for FinBridge API",
   "main": "index.js",
   "scripts": {
@@ -13,12 +13,14 @@
   "author": "bacate",
   "license": "ISC",
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.0.3",
     "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "jsonwebtoken": "^9.0.3"
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.0.2"
   }
 }

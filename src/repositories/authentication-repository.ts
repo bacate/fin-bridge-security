@@ -1,16 +1,16 @@
-import { AuthenticationModel } from "../models/authentication-model"
+import mongoose from "mongoose"
 
-export const authenticationRepository = async (): Promise<AuthenticationModel> => {
+mongoose.connect("mongodb://localhost:27017/finbridge-security").then(() => {
+    console.log("Database connected")
+}).catch((error) => console.log(`Database error ${error}`))
 
-    const user: AuthenticationModel = {
-        
-        id: "694d5b0869f68eb7642b3dc9",
-        username: "gabriel",
-        password: "1234",
-        accountId: "69494a5d1b676649888d0f27"
+const authenticationSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+})
 
-    }
+const AuthenticationDataBaseModel = mongoose.model("authentications", authenticationSchema)
 
-    return user
-
+export const repositoryAuthentication = async (username: String, password: String) => {
+    return await AuthenticationDataBaseModel.findOne({ username, password })
 }

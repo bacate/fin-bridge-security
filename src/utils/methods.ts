@@ -1,3 +1,4 @@
 export enum METHODS {
-    GET = "GET"
+    GET = "GET",
+    POST = "POST"
 }
